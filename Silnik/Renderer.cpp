@@ -6,12 +6,21 @@ namespace Engine
 	std::string Renderer::LoadShader(const char* path)
 	{
 		std::ifstream file(path);
+		if (!file.is_open())
+			throw std::runtime_error("Failed to open File");
 		std::string shader;
 		for (std::string line; std::getline(file, line); )
 		{
 			shader += line + "\n";
 		}
 		return shader;
+	}
+	void Renderer::InitBuffers(GLuint& vertexArray, GLuint& vertexBuffer, GLuint& elementBuffer, GLuint& instanceBuffer)
+	{
+		glGenVertexArrays(1, &vertexArray);
+		glGenBuffers(1, &vertexBuffer);
+		glGenBuffers(1, &elementBuffer);
+		glGenBuffers(1, &instanceBuffer);
 	}
 	GLuint Renderer::CompileShader(const char* source, GLenum shaderType)
 	{

@@ -16,7 +16,7 @@ namespace Engine
 		{
 			layers.push_back(std::make_unique<T>());
 		}
-		void MainLoop();
 		~Application();
+		void Start();
 	};
 }

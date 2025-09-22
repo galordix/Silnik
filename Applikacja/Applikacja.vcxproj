@@ -24,6 +24,7 @@
     <ProjectGuid>{027e820d-0d8a-425f-845c-a40444e0bd5b}</ProjectGuid>
     <RootNamespace>Applikacja</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Aplikacja</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -72,7 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>C:\Users\Jan\source\repos\Silnik\OpenGL_Libs;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\Jan\source\repos\Silnik\OpenGL_Includes;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Jan\source\repos\Silnik\OpenGL_Includes;$(SolutionDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -134,11 +135,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Silnik\AppLayer.h" />
+    <ClInclude Include="AppLayer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Silnik\AppLayer.cpp" />
-    <ClCompile Include="..\Silnik\Main.cpp" />
+    <ClCompile Include="AppLayer.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

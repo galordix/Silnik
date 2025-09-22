@@ -5,15 +5,26 @@ namespace Engine
 	{
 		window = std::make_shared<Window>(height, width);
 		window->Create();
-		MainLoop();
 	}
-	void Application::MainLoop()
+	void Application::Start()
 	{
-		
-		while (!window->ShouldClose())
+		bool running = true;
+		while (running)
 		{
 			glfwPollEvents();
+			if (window->ShouldClose())
+			{
+				running = false;
+				break;
+			}
+
+
+			for (auto& layer : layers)
+			{
+				layer->onRender();
+			}
 			glfwSwapBuffers(window->GetWindow());
+			
 		}
 		
 	}

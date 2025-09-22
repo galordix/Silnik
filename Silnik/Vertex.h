@@ -1,25 +1,29 @@
 #pragma once
+
+#include "glm/gtc/quaternion.hpp"
+#include "glm/vec2.hpp"
+#include "glm/vec3.hpp"
+#include "glm/vec4.hpp"
 struct Vertex
 {
-	float x, y, z; // Position coordinates
-	static const unsigned int positionCoordinateCount = 3;
-	static const unsigned int positionCoordinateSize = positionCoordinateCount * sizeof(float);
+	glm::vec3 position; // Position coordinates
+	glm::vec3 normal;
+	glm::vec4 colour; // Colour value
+	glm::vec2 texCoords; // Texture coordinatess
 	
 	
-	float s, t; // Texture coordinatess
-	static const unsigned int textureCoordinateCount = 2;
-	static const unsigned int textureCoordinateSize = textureCoordinateCount * sizeof(float);
 	
-	float r, g, b, a; // Colour values
-	static const unsigned int colourValuesCount = 4;
-	static const unsigned int colorValuesSize = colourValuesCount * sizeof(float);
 
+	
 	Vertex(float x = 0.0f, float y = 0.0f, float z = 0.0f,
+		float nx = 0.0f, float ny = 0.0f, float nz = 0.0f,
 		float s = 0.0f, float t = 0.0f,
-		float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 0.0f)
-		: x(x), y(y), z(z),
-		s(s), t(t),
-		r(r), g(g), b(b), a(a) 
+		float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 0.0f
+		)
+		: position(x, y, z),
+		texCoords(s, t),
+		colour(r, g, b, a),
+		normal(nx,ny,nz)
 	{}
 	
 };

@@ -1,13 +1,13 @@
 #pragma once
 
+#include "Renderer.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
-
 namespace Engine
 {
 	class Window
 	{
-		GLFWwindow* window = NULL;
+		GLFWwindow* window = nullptr;
 		unsigned int height;
 		unsigned int width;
 	public:

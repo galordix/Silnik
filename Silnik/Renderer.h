@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "glad/glad.h"
 #include <string>
 namespace Engine
 {
@@ -8,10 +9,13 @@ namespace Engine
 	{
 		
 	public:
-		GLuint CreateShaderProgram(const char* vertexPath, const char* fragmentPath);
-		GLuint CompileShader(const char* source, GLenum shaderType);
-		std::string LoadShader(const char* path);
+		static GLuint CreateShaderProgram(const char* vertexPath, const char* fragmentPath);
+		static GLuint CompileShader(const char* source, GLenum shaderType);
+		static std::string LoadShader(const char* path);
+
+		static void InitBuffers(GLuint& vertexArray, GLuint& vertexBuffer, GLuint& elementBuffer, GLuint& instanceBuffer);
 	protected:
+
 	};
 }
 
